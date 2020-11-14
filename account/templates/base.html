@@ -8,6 +8,9 @@
 <body>
     <div id="header">
         <span class="logo">Bookmarks</span>
+        {% if requests.user.is_authenticated %}
+        <ul class="menu">
+            <li {% if section=%}
     </div>
     <div id="content">
         {% block content %}
