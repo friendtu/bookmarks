@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,7 +23,7 @@
         {% endif %}
 
         <span class='user'>
-        {% if request.user.is_authenticated %}
+        {% if requests.user.is_authenticated %}
             Hello, {{ request.user.first_name }},
             <a href={% url "logout" %}>Logout</a>
         {% else %}

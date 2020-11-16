@@ -126,7 +126,7 @@ LOGOUT_URL='logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST='smtp.sina.com'
-EMAIL_HOST_USER='friendtu@sina.com'
-EMAIL_HOST_PASSWORD='cffe8a313aade00d'
-EMAIL_PORT=25
+#EMAIL_HOST_USER='friendtu@sina.com'
+#EMAIL_HOST_PASSWORD='cffe8a313aade00d'
+#EMAIL_PORT=25
 DEFAULT_FROM_EMAIL="friendtu@sina.com"
