@@ -130,3 +130,6 @@ EMAIL_HOST='smtp.sina.com'
 #EMAIL_HOST_PASSWORD='cffe8a313aade00d'
 #EMAIL_PORT=25
 DEFAULT_FROM_EMAIL="friendtu@sina.com"
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media/')

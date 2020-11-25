@@ -5,8 +5,8 @@ from django.conf import settings
 
 
 
-class Profile(model.Model):
-    user=models.OneToOneField(setting.AUTH_USER_MODEL,on_delete=models.CASCADE)
+class Profile(models.Model):
+    user=models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     date_of_birth=models.DateField(null=True,blank=True)
     photo=models.ImageField(upload_to='uploads/%Y/%m/%d/',blank=True)
 
