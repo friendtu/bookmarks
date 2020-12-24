@@ -7,12 +7,14 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def image_create(request):
     if request.method=='POST':
-        cd=form.clean_data
-        new_item=form.save(commit=False)
-        new_item.user=request.user
-        new_item.save()
-        message.success(request,"Image added successfully")
-        return redirect(new_item.get_absolute_url())
+        form=ImageCreateForm(data=request.POST)
+        if form.is_valid():
+            cd=form.cleaned_data
+            new_item=form.save(commit=False)
+            new_item.user=request.user
+            new_item.save()
+            message.success(request,"Image added successfully")
+            return redirect(new_item.get_absolute_url())
     else:
         form=ImageCreateForm(data=request.GET)
     return render(request,'images/image/create.html',{

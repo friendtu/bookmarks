@@ -12,6 +12,7 @@ class ImageCreateForm(forms.ModelForm):
         widgets={
             'url':forms.HiddenInput,
         }
+
     def clean_url(self):
         url=self.cleaned_data['url']
         valid_extentions=['jpg','jpeg']
@@ -19,6 +20,7 @@ class ImageCreateForm(forms.ModelForm):
         if extention not in valid_extentions:
             raise forms.ValidationError('The given URL  doesn\'t not ' \
                     'match valid image extentions.')
+        return url
 
     def save(self,commit=True):
         image=super().save(commit=False)
