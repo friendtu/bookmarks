@@ -21,3 +21,8 @@ class Image(models.Model):
             self.slug=slugify(self.title)
         super().save(*args,**kwargs)
 
+    #to be implemented later
+    def get_absolute_url(self):
+        return "/images"
+
+

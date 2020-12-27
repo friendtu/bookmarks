@@ -13,7 +13,7 @@ def image_create(request):
             new_item=form.save(commit=False)
             new_item.user=request.user
             new_item.save()
-            message.success(request,"Image added successfully")
+            messages.success(request,"Image added successfully")
             return redirect(new_item.get_absolute_url())
     else:
         form=ImageCreateForm(request.GET)
