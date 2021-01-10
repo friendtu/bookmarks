@@ -7,11 +7,25 @@
 
     function bookmarklet(msg){
         //Here goes our bookmarklet code
-        alert('run bookmarklet');
-    };
+        //load css
+        //load html
+        box_html='<div id="bookmarklet"><a href="#" id="close">&times;</a><h1>Select an image to bookmark:</h1><div class="images"></div></div>';
+        jQuery('body').append(box_html);
+
+        jQuery('#bookmarklet #close').click(function(){
+            jQuery('#bookmarklet').remove();
+        });
+
+        jQuery.each(jQuery('img[src$="jpg"]'),
+            function(index,image){    
+                if (jQuery(image).width()>=min_width && jQuery(image).height()>=min_height) {
+                    image_url=jQuery(image).attr('src');
+                    jQuery('#bookmarklet .images').append('<a href="#"><img src="'+ image_url+'" /></a>');
+                }
+            });
+    }
 
     //Check if jQuery is loaded
-    alert('start to run bookmarklet');
     if(typeof window.jQuery!='undefined') {
         bookmarklet();
     } else {
