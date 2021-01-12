@@ -30,6 +30,17 @@
                     jQuery('#bookmarklet .images').append('<a href="#"><img src="'+ image_url+'" /></a>');
                 }
             });
+
+        jQuery('#bookmarklet .images a').click(function(){
+            
+            selected_image=jQuery(this).children('img').attr('src');
+            jQuery('#bookmarklet').hide();
+
+            url_to_create_image=site_url+'images/create/?url='+encodeURIComponent(selected_image)+
+                    '&title='+encodeURIComponent(jQuery('title').text());
+            alert("create image: "+url_to_create_image);
+            window.open(url_to_create_image,'_blank');
+        });
     }
 
     //Check if jQuery is loaded
