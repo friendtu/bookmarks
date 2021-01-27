@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from .models import Image
 from django.http import JsonResponse
+from common.decorators  import ajax_required
 
 # Create your views here.
 @login_required
@@ -34,6 +35,7 @@ def image_detail(request,id,slug):
 
 @login_required
 @require_POST
+@ajax_required
 def image_like(request):
     image_id=request.POST.get('id')
     action=request.POST.get('action')
