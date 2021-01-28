@@ -6,6 +6,7 @@ from django.views.decorators.http import require_POST
 from .models import Image
 from django.http import JsonResponse,HttpResponse
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
+from common.decorators import ajax_required
 
 # Create your views here.
 @login_required

@@ -38,7 +38,7 @@
 
             url_to_create_image=site_url+'images/create/?url='+encodeURIComponent(selected_image)+
                     '&title='+encodeURIComponent(jQuery('title').text());
-            alert("create image: "+url_to_create_image);
+            //alert("create image: "+url_to_create_image);
             window.open(url_to_create_image,'_blank');
         });
     }
