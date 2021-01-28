@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from .models import Image
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
+from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 
 # Create your views here.
 @login_required
@@ -48,3 +49,27 @@ def image_like(request):
         except:
             pass
         return JsonResponse({'status':'ko'})
+
+@login_required
+def image_list(request):
+    images=Image.objects.all()
+    paginator=Paginator(images,2)
+    page = request.GET.get('page')
+    try:
+        images=paginator.page(page)
+    except PageNotAnInteger:
+        images=paginator.page(1)
+    except EmptyPage:
+        if request.is_ajax():
+            return HttpResponse('')
+        images=paginator.page(paginator.num_pages)
+    if request.is_ajax():
+        return render(request,'images/image/list_ajax.html',{
+                'session':'images',
+                'images':images
+            })
+    return render(request,'images/image/list.html',{
+            'session':'images',
+            'images': images
+        })
+

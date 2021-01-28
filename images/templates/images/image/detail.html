@@ -48,6 +48,8 @@
 {% endblock %}
 
 {% block domready %}
+        {# add javascript below #}
+        
         $('a.like').click(function(e){
             e.preventDefault();
             $.post('{% url "images:like" %}',
