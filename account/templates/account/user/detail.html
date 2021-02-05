@@ -46,7 +46,7 @@
                 if(data.status=='ok') {
                     var newAction=action=='follow'?'unfollow':'follow'
                     $('a.follow').data('action',newAction);
-                    $('a.follow').text(newAction);
+                    $('a.follow').text(action=='follow'?'Unfollow':'Follow');
 
                     if (action=='follow') {
                         $('span.total').text(numberOfFollowers+1);
