@@ -5,6 +5,6 @@ from .models import Action
 
 @admin.register(Action)
 class ActionAdmin(admin.ModelAdmin):
-    fields = ('user','verb','target','created')
-    list_display=('created',)
-    search_field=('verb',)
+    list_display = ('user','verb','target','created')
+    list_filter=('created',)
+    search_fields=('verb',)
