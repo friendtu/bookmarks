@@ -6,7 +6,7 @@
 {% block content %}
     <h1> Image ranking</h1>
     <ol>
-        {% for image in image_viewed %}
+        {% for image in most_viewed %}
             <li>
                 <a href="{{ image.get_absolute_url }}">{{ image.title}}</a>
             </li>
